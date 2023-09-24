@@ -216,7 +216,7 @@ func parseCommandLine(args []string) (cmd command, err error) {
 		return printUsage, nil
 	}
 	imageFile := args[0]
-	img := loadImage(imageFile)
+	floppy := newFloppy(imageFile)
 	i := 1
 	switch args[i] {
 	case "l", "list":
@@ -226,7 +226,7 @@ func parseCommandLine(args []string) (cmd command, err error) {
 			return nil, errors.New("unexpected args")
 		}
 		command := func() error {
-			fds, err := img.listFiles()
+			fds, err := floppy.listFiles()
 			if err != nil {
 				return err
 			}
@@ -248,7 +248,7 @@ func parseCommandLine(args []string) (cmd command, err error) {
 			return nil, errors.New("unexpected args")
 		}
 		command := func() error {
-			fds, err := img.listFiles()
+			fds, err := floppy.listFiles()
 			if err != nil {
 				return err
 			}
@@ -256,7 +256,7 @@ func parseCommandLine(args []string) (cmd command, err error) {
 				if fd.nameAsString() != toExtract {
 					continue
 				}
-				data, err := img.readFile(fd)
+				data, err := floppy.readFile(fd)
 				if err != nil {
 					return err
 				}
@@ -278,7 +278,7 @@ func parseCommandLine(args []string) (cmd command, err error) {
 			return nil, errors.New("unexpected args")
 		}
 		command := func() error {
-			fds, err := img.listFiles()
+			fds, err := floppy.listFiles()
 			if err != nil {
 				return err
 			}
@@ -286,7 +286,7 @@ func parseCommandLine(args []string) (cmd command, err error) {
 				if fd.nameAsString() != toExtract {
 					continue
 				}
-				extractFile(img, fd)
+				extractFile(floppy, fd)
 				return nil
 			}
 			return fmt.Errorf("File %q not found", toExtract)
@@ -298,12 +298,12 @@ func parseCommandLine(args []string) (cmd command, err error) {
 			return nil, errors.New("unexpected args")
 		}
 		command := func() error {
-			fds, err := img.listFiles()
+			fds, err := floppy.listFiles()
 			if err != nil {
 				return err
 			}
 			for _, fd := range fds {
-				extractFile(img, fd)
+				extractFile(floppy, fd)
 			}
 			return nil
 		}
