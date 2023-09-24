@@ -330,7 +330,7 @@ func extractFile(fl *floppy, fd fileDesc) error {
 }
 
 func printUsage() error {
-	fmt.Printf("Usage: ceres_floppy_tool <image file> command [command params]\n")
+	fmt.Printf("Usage: cft <image file> command [command params]\n")
 	fmt.Printf("Available commands are: (short form in parentheses)\n")
 	fmt.Printf("  list (l): List all files\n")
 	fmt.Printf("  dump (d) <filename>: Read file <filename> and write it to stdout\n")

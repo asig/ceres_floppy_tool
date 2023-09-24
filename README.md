@@ -1,18 +1,19 @@
 # Ceres Floppy Tool
 
-`ceres_floppy_tool` is a small program that allows you to extract files from
-floppy images of floppies that you used with your old [Ceres](https://en.wikipedia.org/wiki/Ceres_(workstation))
+`cft` is a small program that allows you to extract files from floppy images
+of floppies that you used with your old [Ceres](https://en.wikipedia.org/wiki/Ceres_(workstation))
+workstation.
 
 ## Building ceres_floppy_tool
 The source code is in a single file, and does not require any non-standard 
-go dependencies, so all you need to do is `go build ceres_floppy_tool.go`.
+go dependencies, so all you need to do is `go build cft.go`.
 
 If you have the `make`` installed (and you proably do if you're reading this), then
 you can also just call `make`.
 
 ## Usage
 
-Usage: `ceres_floppy_tool <image-file> <command> [command params]`
+Usage: `cft <image-file> <command> [command params]`
 
 `image-file` is a raw floppy dump that can be generated with a standard USB floppy drive and `dd`
 

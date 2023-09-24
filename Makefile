@@ -1,10 +1,10 @@
 .PHONY: clean
 
-all: ceres_floppy_tool
+all: cft
 
-ceres_floppy_tool: ceres_floppy_tool.go
-	go build ceres_floppy_tool.go
+cft: cft.go
+	go build cft.go
 
 clean:
-	rm -f ceres_floppy_tool
+	rm -f cft
 
