@@ -8,7 +8,7 @@ workstation.
 The source code is in a single file, and does not require any non-standard 
 go dependencies, so all you need to do is `go build cft.go`.
 
-If you have the `make`` installed (and you proably do if you're reading this), then
+If you have `make` installed (and you proably do if you're reading this), then
 you can also just call `make`.
 
 ## Usage
